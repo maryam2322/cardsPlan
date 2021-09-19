@@ -1,0 +1,214 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h3 {
+    color: #1d114f;
+}
+
+:root {
+    --font-color: gray;
+    --primary-color: #7c01eb;
+    --main-border-radious: 1rem;
+    --large-font: 2.5rem;
+}
+
+.card-container {
+    display: grid;
+    width: 80vm;
+    height: 120vh;
+    grid-template: repeat(2, auto) / auto;
+    margin: 0 0 60px 0;
+    justify-content: center;
+    align-content: center;
+}
+
+.card_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 0 100px 0 120px;
+}
+
+.main-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-weight: bolder;
+    font-size: var(--large-font);
+}
+
+
+input[type="range"]::-moz-range-progress {
+    background-color: var(--primary-color);
+}
+
+input[type="range"]::-moz-range-track {
+    background-color: gray;
+}
+
+input[type="range"]::-ms-fill-lower {
+    background-color: var(--primary-color);
+}
+
+input[type="range"]::-ms-fill-upper {
+    background-color: gray;
+}
+
+.rang-slider {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-content: center;
+    justify-items: center;
+    margin-top: 30px;
+}
+
+.btn {
+    border: 0;
+}
+
+.btn-left {
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    padding: 8px 20px;
+    color: #fdd3cb;
+}
+
+.btn-right {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+.btn-left:hover, .btn-right:hover {
+    background-color: var(--primary-color);
+    color: #fdd3cb;
+}
+
+.card_body {
+    display: grid;
+    grid-template: 500px / repeat(4, 300px);
+    grid-template-areas: "onePlan twoPlan threePlan fourPlan";
+    justify-content: center;
+    align-content: center;
+    margin-top: 50px;
+    column-gap: 10px;
+    color: var(--font-color);
+}
+
+.card_body p {
+    font-size: 1.1rem;
+}
+
+.card_body span {
+    font-size: 1rem;
+    color: gray;
+    font-weight: lighter;
+}
+
+.card_body ul {
+    list-style-image: url("img/check-gray.png");
+    line-height: 2.5rem;
+    color: #1d114f;
+    font-size: 1rem;
+}
+
+.card_body button {
+    margin-top: 30px;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 12px 40px;
+    color: #961acc;
+    font-weight: bold;
+}
+
+.card_body button:hover {
+    border: 1px solid #ff80ab;
+    background-color: #6e00ff !important;
+    color: #ff80ab !important;
+}
+
+.one-plan {
+    padding: 10px;
+    grid-area: onePlan;
+    border: 0 solid var(--primary-color);
+    border-radius: var(--main-border-radious);
+}
+
+.two-plan {
+    padding: 10px;
+    grid-area: twoPlan;
+    border: 0 solid var(--primary-color);
+    border-radius: var(--main-border-radious);
+}
+
+.three-plan {
+    padding: 10px;
+    grid-area: threePlan;
+    border: 0 solid var(--primary-color);
+    border-radius: var(--main-border-radious);
+}
+
+.four-plan {
+    padding: 10px;
+    grid-area: fourPlan;
+    border: 0 solid var(--primary-color);
+    border-radius: var(--main-border-radious);
+}
+
+.one-plan:hover, .two-plan:hover, .three-plan:hover, .four-plan:hover {
+    background-color: var(--primary-color);
+    color: #fdd3cb;
+}
+
+.one-plan:hover p, .two-plan:hover p, .three-plan:hover, .four-plan:hover p {
+    font-weight: bold;
+    color: #fdd3cb;
+}
+
+.one-plan:hover span, .two-plan:hover span, .three-plan:hover span, .four-plan:hover span {
+    font-weight: bold;
+    color: #fdd3cb;
+}
+
+.one-plan:hover ul, .two-plan:hover ul, .three-plan:hover ul, .four-plan:hover ul {
+    list-style-image: url("img/check-pink.png");
+    font-weight: bold;
+    color: #fdd3cb;
+}
+
+.one-plan:hover button, .two-plan:hover button, .three-plan:hover button, .four-plan:hover button {
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: #fdd3cb;
+}
+
+@media screen and (max-width: 700px) and (max-width: 900px) {
+    .card_body {
+        display: block;
+    }
+
+    .card-container {
+        display: block;
+    }
+
+    .main-header {
+        flex-direction: column;
+    }
+
+    .main-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        margin-top: 1.8rem;
+    }
+}
