@@ -8,8 +8,12 @@
     <title>Plan Cards</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 </head>
-<body>
+<body class="animate__animated animate__headShake">
 
 <div class="card-container">
 
@@ -18,16 +22,17 @@
         <div class="main-header">
 
             <h1>Simple, transparent pricing</h1>
-            <div class="btn">
-                <button class="btn-left">Monthly</button>
-                <button class="btn-right">Yearly</button>
-            </div>
+
+                <span class="btn btn-switch">
+                <input type="checkbox" name="" id="switch">
+                <lable for="switch"></lable>
+             </span>
         </div>
 
         <h3 style="color: darkgray; font-weight: lighter">No contracts. No surprise fees.</h3>
 
         <div class="rang-slider">
-            <input type="range" min="1" max="500" step="100">
+            <input class="rng" type="range" min="1" max="100" step="1" value="10">
         </div>
 
     </div>

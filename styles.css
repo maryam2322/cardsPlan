@@ -1,5 +1,4 @@
 body {
-    margin: 0;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -44,23 +43,6 @@ h1, h3 {
     font-size: var(--large-font);
 }
 
-
-input[type="range"]::-moz-range-progress {
-    background-color: var(--primary-color);
-}
-
-input[type="range"]::-moz-range-track {
-    background-color: gray;
-}
-
-input[type="range"]::-ms-fill-lower {
-    background-color: var(--primary-color);
-}
-
-input[type="range"]::-ms-fill-upper {
-    background-color: gray;
-}
-
 .rang-slider {
     display: flex;
     flex-direction: column;
@@ -68,28 +50,130 @@ input[type="range"]::-ms-fill-upper {
     align-content: center;
     justify-items: center;
     margin-top: 30px;
+
+}
+
+.rang-slider input {
+    -webkit-appearance: none;
+    height: 3px;
+    width: 100%;
+    background: #ddd;
+    border-radius: 5px;
+
+}
+
+.rang-slider input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #664aff;
+    border-radius: 50%;
+    border: 1px solid #7c01eb;
+    cursor: pointer;
+}
+
+.rang-slider input::-moz-range-progress {
+    background-color: #7c01eb;
+}
+
+.rang-slider input::-webkit-slider-container {
+    background-color: #7c01eb;
 }
 
 .btn {
-    border: 0;
+    position: relative;
+    height: 56px;
+
 }
 
-.btn-left {
-    background-color: var(--primary-color);
+.btn input {
+    position: relative;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    box-shadow: 1px 4px 11px #7c01eb;
+
+}
+
+.btn input:before,
+.btn input:after {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #111;
+}
+
+.btn input:before {
+    content: "Monthly";
+    left: 40px;
+}
+
+.btn input:after {
+    content: "Yearly";
+    right: 40px;
+}
+
+.btn label {
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
     border-radius: 20px;
-    padding: 8px 20px;
-    color: #fdd3cb;
 }
 
-.btn-right {
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 8px 20px;
+.btn.btn-switch input {
+    transition: 0.2s -0.1s;
 }
 
-.btn-left:hover, .btn-right:hover {
-    background-color: var(--primary-color);
-    color: #fdd3cb;
+.btn.btn-switch input:checked {
+    background: #fff;
+
+}
+
+.btn.btn-switch input:checked:before {
+    color: #111;
+    transition: color 0.5s 0.2s;
+}
+
+.btn.btn-switch input:checked:after {
+    color: #111;
+    transition: color 0.5s;
+}
+
+.btn.btn-switch input:checked + label {
+    left: 10px;
+    right: 100px;
+    background: #7c01eb;
+    transition: left 0.5s, right 0.4s 0.2s;
+}
+
+.btn.btn-switch input:not(:checked) {
+    background: #7c01eb;
+    transition: background 0.5s -0.1s;
+}
+
+.btn.btn-switch input:not(:checked):before {
+    color: #111;
+    transition: color 0.5s;
+}
+
+
+.btn.btn-switch input:not(:checked):after {
+    color: #1e1e1e;
+    transition: color 0.5s 0.2s;
+}
+
+.btn.btn-switch input:not(:checked) + label {
+    left: 100px;
+    right: 10px;
+    background: #fff;
+    transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
 }
 
 .card_body {
@@ -98,9 +182,10 @@ input[type="range"]::-ms-fill-upper {
     grid-template-areas: "onePlan twoPlan threePlan fourPlan";
     justify-content: center;
     align-content: center;
-    margin-top: 50px;
+    margin-top: 60px;
     column-gap: 10px;
     color: var(--font-color);
+    cursor: pointer;
 }
 
 .card_body p {
@@ -121,74 +206,88 @@ input[type="range"]::-ms-fill-upper {
 }
 
 .card_body button {
-    margin-top: 30px;
+    margin: 30px 0 30px 0;
     border: 1px solid var(--primary-color);
     border-radius: 0.5rem;
     text-align: center;
     padding: 12px 40px;
     color: #961acc;
     font-weight: bold;
+    width: 90%;
+    cursor: pointer;
+
 }
 
 .card_body button:hover {
-    border: 1px solid #ff80ab;
-    background-color: #6e00ff !important;
+    background-color: #7c01eb !important;
     color: #ff80ab !important;
+    transition: background-color 1s, color 2s;
 }
 
 .one-plan {
-    padding: 10px;
+    padding-left: 25px;
     grid-area: onePlan;
     border: 0 solid var(--primary-color);
     border-radius: var(--main-border-radious);
 }
 
 .two-plan {
-    padding: 10px;
+    padding-left: 25px;
     grid-area: twoPlan;
     border: 0 solid var(--primary-color);
     border-radius: var(--main-border-radious);
 }
 
 .three-plan {
-    padding: 10px;
+    padding-left: 25px;
     grid-area: threePlan;
     border: 0 solid var(--primary-color);
     border-radius: var(--main-border-radious);
 }
 
 .four-plan {
-    padding: 10px;
+    padding-left: 25px;
     grid-area: fourPlan;
     border: 0 solid var(--primary-color);
     border-radius: var(--main-border-radious);
 }
 
-.one-plan:hover, .two-plan:hover, .three-plan:hover, .four-plan:hover {
+.three-plan {
     background-color: var(--primary-color);
     color: #fdd3cb;
+    font-weight: bold;
+    transition: background-color 1s, color 1s;
 }
 
-.one-plan:hover p, .two-plan:hover p, .three-plan:hover, .four-plan:hover p {
+
+.three-plan span,
+.three-plan h1,
+.three-plan h3,
+.three-plan ul {
     font-weight: bold;
     color: #fdd3cb;
+    transition: color 1s;
 }
 
-.one-plan:hover span, .two-plan:hover span, .three-plan:hover span, .four-plan:hover span {
-    font-weight: bold;
-    color: #fdd3cb;
-}
-
-.one-plan:hover ul, .two-plan:hover ul, .three-plan:hover ul, .four-plan:hover ul {
+.three-plan ul {
     list-style-image: url("img/check-pink.png");
-    font-weight: bold;
-    color: #fdd3cb;
+    transition: color 1s;
 }
 
-.one-plan:hover button, .two-plan:hover button, .three-plan:hover button, .four-plan:hover button {
+.three-plan button {
     font-weight: bold;
     color: var(--primary-color);
     background-color: #fdd3cb;
+    transition: background-color 1s, color 1s;
+}
+
+.one-plan:hover,
+.two-plan:hover,
+.three-plan:hover,
+.four-plan:hover {
+    box-shadow: 1px 4px 11px #7c01eb;
+    border: 1px solid #7c01eb;
+    transition: 1.2s;
 }
 
 @media screen and (max-width: 700px) and (max-width: 900px) {
